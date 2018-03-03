@@ -16,7 +16,8 @@ cache:
 # Adapt as necessary starting from here
 
 build_script:
-  - ls -R c:/Rtools
+  - find c:/ -name "*gmp*"
+  - find c:/ -name "*mpfr*"
 
   - curl -o "c:/local323.zip" https://www.stats.ox.ac.uk/pub/Rtools/goodies/multilib/local323.zip
   - unzip "c:/local323.zip" -d "c:/local323"

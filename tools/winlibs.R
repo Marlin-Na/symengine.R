@@ -5,6 +5,9 @@ symengine_win64 <- "https://anaconda.org/symengine/symengine/0.3.0.353.g22cef70/
 mpc_win32 <- "https://anaconda.org/conda-forge/mpc/1.0.3/download/win-32/mpc-1.0.3-vc14_4.tar.bz2"
 mpc_win64 <- "https://anaconda.org/conda-forge/mpc/1.0.3/download/win-64/mpc-1.0.3-vc14_4.tar.bz2"
 
+mpfr_win32 <- "https://anaconda.org/conda-forge/mpfr/3.1.5/download/win-32/mpfr-3.1.5-vc14_0.tar.bz2"
+mpfr_win64 <- "https://anaconda.org/conda-forge/mpfr/3.1.5/download/win-64/mpfr-3.1.5-vc14_0.tar.bz2"
+
 is_32 <- function () {
     machine <- Sys.info()[["machine"]]
     
@@ -46,10 +49,26 @@ download_mpc <- function () {
     unlink("mpclib.tar.bz2")
 }
 
+download_mpfr <- function () {
+    if (file.exists("../win-mpfr/Library/lib/mpfr.lib"))
+        return()
+    
+    if (is_32())
+        link <- mpfr_win32
+    else
+        link <- mpfr_win64
+    download.file(link, "mpfrlib.tar.bz2", quiet = FALSE)
+    if (!dir.exists("../win-mpfr"))
+        dir.create("../win-mpfr")
+    untar("mpfrlib.tar.bz2", exdir = "../win-mpfr", tar = "internal")
+    unlink("mpfrlib.tar.bz2")
+}
+
 # Ensure we are in the correct directory
 stopifnot(file.exists("../DESCRIPTION"))
 
 download_symengine()
 download_mpc()
+download_mpfr()
 
 

@@ -16,19 +16,7 @@ cache:
 # Adapt as necessary starting from here
 
 build_script:
-  - find c:/ -name "*gmp*"
-  - find c:/ -name "*mpfr*"
-
-  - curl -o "c:/local323.zip" https://www.stats.ox.ac.uk/pub/Rtools/goodies/multilib/local323.zip
-  - unzip "c:/local323.zip" -d "c:/local323"
-  
   - travis-tool.sh install_deps
-
-environment:
-  global:
-    # Manually set Make variables
-    LIB_GMP: "c:/local323"
-    LIB_MPFR: "c:/local323"
 
 test_script:
   - travis-tool.sh run_tests

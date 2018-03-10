@@ -14,7 +14,7 @@ mpir_win64 <- "https://anaconda.org/conda-forge/mpir/3.0.0/download/win-64/mpir-
 is_32 <- function () {
     machine <- Sys.info()[["machine"]]
     
-    if (machine == "x86_64")
+    if (machine %in% c("x86_64", "x86-64"))
         use_32 <- FALSE
     else if (machine == "x86")
         use_32 <- TRUE

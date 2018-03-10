@@ -23,8 +23,8 @@ is_32 <- function () {
 }
 
 download_symengine <- function () {
-    if (file.exists("../win-symengine/Library/lib/symengine.lib"))
-        return()
+    if (dir.exists("../win-symengine/"))
+        unlink("../win-symengine/", recursive = TRUE)
     
     if (is_32())
         link <- symengine_win32
@@ -38,8 +38,8 @@ download_symengine <- function () {
 }
 
 download_mpc <- function () {
-    if (file.exists("../win-mpc/Library/lib/mpc.lib"))
-        return()
+    if (dir.exists("../win-mpc/"))
+        unlink("../win-mpc/", recursive = TRUE)
     
     if (is_32())
         link <- mpc_win32
@@ -53,8 +53,8 @@ download_mpc <- function () {
 }
 
 download_mpfr <- function () {
-    if (file.exists("../win-mpfr/Library/lib/mpfr.lib"))
-        return()
+    if (dir.exists("../win-mpfr/"))
+        unlink("../win-mpfr/", recursive = TRUE)
     
     if (is_32())
         link <- mpfr_win32
@@ -68,8 +68,8 @@ download_mpfr <- function () {
 }
 
 download_mpir <- function () {
-    if (file.exists("../win-mpir/Library/lib/gmp.lib"))
-        return()
+    if (dir.exists("../win-mpir/"))
+        unlink("../win-mpir/", recursive = TRUE)
     
     if (is_32())
         link <- mpir_win32

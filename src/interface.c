@@ -7,7 +7,6 @@
 #include <R.h>
 #include <Rinternals.h>
 
-#include <gmp.h>
 #include <symengine/cwrapper.h>
 
 // Utils //=====================================================================

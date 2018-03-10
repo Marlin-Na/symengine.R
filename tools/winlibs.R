@@ -19,7 +19,7 @@ is_32 <- function () {
     else if (machine == "x86")
         use_32 <- TRUE
     else
-        stop("Unrecognized type of machine, which should be either 'x86' or 'x86_64' ??")
+        stop("Unrecognized type of machine ", sQuote(machine))
 }
 
 download_symengine <- function () {

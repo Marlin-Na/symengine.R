@@ -96,6 +96,7 @@ if [ -z "$SymEngine_DIR" ]; then
     cd src/upstream
 
     $CMAKE_BIN \
+        -DCMAKE_INSTALL_PREFIX="$PKG_DIR"/inst/cpplib${R_ARCH} \
         -DCMAKE_BUILD_TYPE=Release \
         -DWITH_BFD=no \
         -DWITH_SYMENGINE_ASSERT=no \

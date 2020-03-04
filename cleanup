@@ -71,3 +71,5 @@ rm -r src/upstream/symengine/utilities/*/SymEngineConfig.cmake
 rm -r src/upstream/symengine/utilities/*/SymEngineConfigVersion.cmake
 rm -r src/upstream/symengine/utilities/*/SymEngineTargets.cmake
 rm -r src/upstream/symengine/utilities/*/cmake-build-*
+
+rm -r inst/cpplib${R_ARCH}

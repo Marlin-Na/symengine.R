@@ -129,3 +129,8 @@ set_default_option_if_not <- function(name, value) {
     }
     invisible(NULL)
 }
+
+symengine_cppdir <- function() {
+    # i.e. "inst/cpplib${R_ARCH}"
+    system.file(paste0("cpplib", .Platform$r_arch), package = "symengine", mustWork = TRUE)
+}

@@ -135,16 +135,13 @@ symengine_cpp_dir <- function() {
     system.file(paste0("cpplib", .Platform$r_arch), package = "symengine", mustWork = TRUE)
 }
 
-SYMENGINE_PY_COMMIT <- "4abfe892c56efa6e7b1939b2c78735b4e60d47bb"
-
-symengine_py_install <- function(...) {
+symengine_py_install <- function(ref = "symengine/symengine.py@4abfe892c56efa6e7b1939b2c78735b4e60d47bb", ...) {
     ## Set SymEngine_DIR to the static library bundled by the installed R package
     oldenv <- Sys.getenv("SymEngine_DIR", unset = NA, names = FALSE)
     on.exit(if (is.na(oldenv)) Sys.unsetenv("SymEngine_DIR")
             else Sys.setenv(SymEngine_DIR = oldenv))
     Sys.setenv(SymEngine_DIR = symengine_cpp_dir())
     
-    symengine_py_url <- sprintf("git+https://github.com/symengine/symengine.py.git@%s",
-                             SYMENGINE_PY_COMMIT)
+    symengine_py_url <- sprintf("git+https://github.com/%s", ref)
     reticulate::py_install(packages=symengine_py_url, pip=TRUE, ...)
 }
